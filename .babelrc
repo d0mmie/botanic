@@ -1,0 +1,9 @@
+{
+  "presets": [
+    "next/babel"
+  ],
+  "plugins": [
+    "transform-decorators-legacy",
+    ["lodash", { "id": ["lodash", "recompose", "@material-ui"] }]
+  ]
+}
