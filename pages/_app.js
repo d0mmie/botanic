@@ -4,11 +4,14 @@ import NProgress from 'nprogress'
 import Router from 'next/router'
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import { ApolloProvider } from 'react-apollo'
+import { Provider } from 'react-redux'
 
 import withMaterialUI from '../hocs/withMaterialUI'
 import withApolloClient from '../hocs/withApolloClient'
+import withReduxStore from '../hocs/withReduxStore'
 
 @withApolloClient
+@withReduxStore
 @withMaterialUI
 export default class MyApp extends App {
   static async getInitialProps ({ Component, router, ctx }) {
@@ -42,16 +45,18 @@ export default class MyApp extends App {
   }
 
   render () {
-    const { Component, pageProps, pageContext, apolloClient } = this.props
+    const { Component, pageProps, pageContext, apolloClient, reduxStore } = this.props
     return (
       <Container>
         <ApolloProvider client={apolloClient}>
-          <MuiThemeProvider
-            theme={pageContext.theme}
-            sheetsManager={pageContext.sheetsManager}
-          >
-            <Component {...pageProps} />
-          </MuiThemeProvider>
+          <Provider store={reduxStore}>
+            <MuiThemeProvider
+              theme={pageContext.theme}
+              sheetsManager={pageContext.sheetsManager}
+            >
+              <Component {...pageProps} />
+            </MuiThemeProvider>
+          </Provider>
         </ApolloProvider>
       </Container>
     )

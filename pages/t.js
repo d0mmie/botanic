@@ -5,6 +5,10 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 import CharacteristicsItem from '../components/characteristicsItem'
+import ImgDialog from '../components/imageDialog'
+import { openDialog } from '../store/reducers/imageDialog'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 const FIND_TREE_BY_ID_QUERY = gql`
   query FIND_TREE_BY_ID_QUERY ($id: ID!){
@@ -54,7 +58,8 @@ const styles = theme => ({
   },
   media: {
     paddingLeft: 400,
-    height: '100%'
+    height: '100%',
+    cursor: 'pointer'
   },
   typo: {
     marginTop: 12
@@ -71,6 +76,10 @@ const styles = theme => ({
 @graphql(FIND_TREE_BY_ID_QUERY, {
   options: ({ query }) => ({ variables: { id: query.id } })
 })
+@connect(
+  state => ({ store: state.imgDialog }),
+  dispatch => bindActionCreators({ openDialog }, dispatch)
+)
 @withStyles(styles)
 export default class TreePage extends React.Component {
   static getInitialProps ({ query }) {
@@ -79,16 +88,18 @@ export default class TreePage extends React.Component {
 
   static propTypes = {
     data: PropTypes.object,
-    classes: PropTypes.object
+    classes: PropTypes.object,
+    openDialog: PropTypes.func
   }
 
   render () {
-    const { data, classes } = this.props
+    const { data, classes, openDialog } = this.props
     return (
       <div>
         <Card elevation={0} className={classes.card}>
           <div>
             <CardMedia
+              onClick={() => openDialog(data.tree.image.url)}
               className={classes.media}
               image={data.tree.image.url}
               title={data.tree.name}
@@ -109,6 +120,7 @@ export default class TreePage extends React.Component {
         <div>
           {data.tree.characteristics.map((char) => <CharacteristicsItem key={char.id} {...char} />)}
         </div>
+        <ImgDialog />
       </div>
     )
   }
