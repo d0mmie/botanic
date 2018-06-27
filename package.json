@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^1.2.3",
+    "@material-ui/icons": "^1.1.0",
     "apollo-boost": "^0.1.10",
     "graphql": "^0.13.2",
     "isomorphic-unfetch": "^2.0.0",
@@ -24,12 +25,16 @@
     "react": "^16.4.1",
     "react-apollo": "^2.1.6",
     "react-dom": "^16.4.1",
+    "react-file-reader": "^1.1.4",
     "react-redux": "^5.0.7",
+    "react-swipeable-views": "^0.12.14",
     "recompose": "^0.27.1",
     "redux": "^4.0.0",
     "redux-define": "^1.1.1",
     "redux-devtools-extension": "^2.13.5",
+    "redux-form": "^7.4.2",
     "redux-thunk": "^2.3.0",
+    "styled-components": "^3.3.3",
     "styled-jsx": "^2.2.7"
   },
   "devDependencies": {

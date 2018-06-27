@@ -8,11 +8,10 @@ import { connect } from 'react-redux'
 
 const styles = theme => ({
   card: {
-    marginLeft: 260,
     display: 'flex',
     flexDirection: 'row',
-    padding: theme.spacing.unit,
-    marginTop: theme.spacing.unit,
+    padding: 16,
+    marginTop: 16,
     alignItems: 'center'
   },
   media: {

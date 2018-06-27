@@ -1,11 +1,16 @@
 import React from 'react'
 
-export default class TreeAdd extends React.Component {
+import AddTreeCharacteristicDataForm from '../../components/addTreeCharacteristicDataForm'
+import AddTreeGeneralDataForm from '../../components/addTreeGeneralDataForm'
+import Layout from '../../components/layout'
+
+export default class AddTreePage extends React.Component {
   render () {
     return (
-      <div>
-        {'TreeAdd'}
-      </div>
+      <Layout title='เพิ่มต้นไม้'>
+        <AddTreeGeneralDataForm />
+        <AddTreeCharacteristicDataForm />
+      </Layout>
     )
   }
 }

@@ -20,7 +20,7 @@ const styles = theme => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
-    padding: theme.spacing.unit,
+    padding: 16,
     flex: '1 0 auto'
   },
   cover: {

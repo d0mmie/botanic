@@ -4,6 +4,7 @@
   ],
   "plugins": [
     "transform-decorators-legacy",
-    ["lodash", { "id": ["lodash", "recompose", "@material-ui"] }]
+    ["lodash", { "id": ["lodash", "recompose", "@material-ui"] }],
+    ["styled-components", { "ssr": true, "displayName": true, "preprocess": false }]
   ]
 }

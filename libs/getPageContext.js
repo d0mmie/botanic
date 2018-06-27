@@ -1,11 +1,7 @@
 import { createMuiTheme, createGenerateClassName } from '@material-ui/core/styles'
 import { SheetsRegistry } from 'jss'
 
-const theme = createMuiTheme({
-  spacing: {
-    unit: 16
-  }
-})
+const theme = createMuiTheme()
 
 const createPageContext = () => ({
   theme,
