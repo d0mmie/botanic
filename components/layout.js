@@ -1,5 +1,4 @@
-import { AppBar, Typography, Toolbar, IconButton, withStyles } from '@material-ui/core'
-import MenuIcon from '@material-ui/icons/Menu'
+import { AppBar, Typography, Toolbar, IconButton, withStyles, Icon } from '@material-ui/core'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -31,7 +30,7 @@ export default class Layout extends React.Component {
       <React.Fragment>
         <AppBar>
           <Toolbar>
-            <IconButton className={classes.menuButton} color='inherit'><MenuIcon /></IconButton>
+            <IconButton className={classes.menuButton} color='inherit'><Icon>{'menu'}</Icon></IconButton>
             <Typography variant='title' color='inherit' className={classes.title}>
               {title}
             </Typography>

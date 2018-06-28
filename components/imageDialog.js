@@ -1,14 +1,13 @@
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Dialog } from '@material-ui/core'
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 
 import { closeDialog } from '../store/reducers/imageDialog'
 
 @connect(
   state => ({ store: state.imgDialog }),
-  dispatch => bindActionCreators({ closeDialog }, dispatch)
+  { closeDialog }
 )
 export default class ImageDialog extends React.Component {
   static propTypes = {

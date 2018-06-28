@@ -1,7 +1,7 @@
-import React from 'react'
-import { Icon, withStyles } from '@material-ui/core'
 import { fade } from '@material-ui/core/styles/colorManipulator'
+import { Icon, withStyles } from '@material-ui/core'
 import PropTypes from 'prop-types'
+import React from 'react'
 
 const styles = theme => ({
   root: {

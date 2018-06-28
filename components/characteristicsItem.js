@@ -3,7 +3,6 @@ import { withStyles, Card, CardContent, CardMedia, Typography } from '@material-
 import PropTypes from 'prop-types'
 import React from 'react'
 import { openDialog } from '../store/reducers/imageDialog'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 const styles = theme => ({
@@ -29,7 +28,7 @@ const styles = theme => ({
 
 @connect(
   state => ({ store: state.imgDialog }),
-  dispatch => bindActionCreators({ openDialog }, dispatch)
+  { openDialog }
 )
 @withStyles(styles)
 export default class CharacteristicsItem extends React.Component {

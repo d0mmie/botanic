@@ -1,12 +1,12 @@
+import { Button } from '@material-ui/core'
 import { gql } from 'apollo-boost'
 import { graphql } from 'react-apollo'
 import PropTypes from 'prop-types'
 import React from 'react'
-import Layout from '../../components/layout'
 
-import TreeCard from '../../components/treeCard'
-import { Button } from '@material-ui/core'
+import Layout from '../../components/layout'
 import SearchBox from '../../components/searchBox'
+import TreeCard from '../../components/treeCard'
 
 const ALL_TREE_QUERY = gql`
   query ALL_TREE_QUERY {

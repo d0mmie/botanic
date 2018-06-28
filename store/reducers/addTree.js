@@ -1,15 +1,26 @@
 import actionCreator from '../actionCreator'
 
 const initialState = {
-  tabIndex: 1
+  images: {
+    primary: '',
+    characteristics: []
+  },
+  files: {
+    primary: null,
+    characteristics: []
+  }
 }
 
-const CHANGE_TAB_INDEX = actionCreator.defineAction('CHANGE_TAB_INDEX').toString()
+const SET_IMAGE_FILE_PRIMARY = actionCreator.defineAction('SET_IMAGE_FILE_PRIMARY').toString()
+const SET_IMAGE_FILE_CHARACTERISTIC = actionCreator.defineAction('SET_IMAGE_FILE_CHARACTERISTIC').toString()
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case CHANGE_TAB_INDEX: {
-      return { ...state, tabIndex: action.payload }
+    case SET_IMAGE_FILE_PRIMARY: {
+      return { ...state, files: { ...state.files, primary: action.payload } }
+    }
+    case SET_IMAGE_FILE_CHARACTERISTIC: {
+      return { ...state, files: { ...state.files, characteristics: { ...state.files.characteristics, [action.payload.key]: action.payload.file } } }
     }
     default: {
       return state
@@ -17,6 +28,6 @@ export default (state = initialState, action) => {
   }
 }
 
-export const changeTabIndex = (_, value) => ({ type: CHANGE_TAB_INDEX, payload: value })
+export const setImageFilePrimary = file => ({ type: SET_IMAGE_FILE_PRIMARY, payload: file })
 
-export const changeTabIndexExtra = index => ({ type: CHANGE_TAB_INDEX, payload: index })
+export const setImageFileCharacteristic = (file, index) => ({ type: SET_IMAGE_FILE_CHARACTERISTIC, payload: { key: index, file } })

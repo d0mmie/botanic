@@ -1,4 +1,3 @@
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { gql } from 'apollo-boost'
 import { graphql } from 'react-apollo'
@@ -82,7 +81,7 @@ const styles = theme => ({
 })
 @connect(
   state => ({ store: state.imgDialog }),
-  dispatch => bindActionCreators({ openDialog }, dispatch)
+  { openDialog }
 )
 @withStyles(styles)
 export default class TreeDetail extends React.Component {
