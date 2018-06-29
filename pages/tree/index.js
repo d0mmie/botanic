@@ -1,8 +1,9 @@
-import { Button } from '@material-ui/core'
+import { Button, Hidden } from '@material-ui/core'
 import { gql } from 'apollo-boost'
 import { graphql } from 'react-apollo'
 import PropTypes from 'prop-types'
 import React from 'react'
+import Link from 'next/link'
 
 import Layout from '../../components/layout'
 import SearchBox from '../../components/searchBox'
@@ -30,14 +31,18 @@ export default class Tree extends React.Component {
         title='รายชื่อต้นไม้'
         extra={
           <React.Fragment>
-            <SearchBox />
-            <Button color='inherit'>{'เพิ่มต้นไม้'}</Button>
+            <Hidden smDown>
+              <SearchBox />
+            </Hidden>
+            <Link href={{ pathname: '/tree/add' }}>
+              <Button color='inherit'>{'เพิ่มต้นไม้'}</Button>
+            </Link>
           </React.Fragment>
         }
       >
-        <div style={{ padding: '8px 24px' }}>
+        <React.Fragment>
           { this.props.data.trees.map(tree => <TreeCard key={tree.id} {...tree} />) }
-        </div>
+        </React.Fragment>
       </Layout>
     )
   }

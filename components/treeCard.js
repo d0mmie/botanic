@@ -24,8 +24,8 @@ const styles = theme => ({
     flex: '1 0 auto'
   },
   cover: {
-    width: 300,
-    height: 151,
+    paddingLeft: 150,
+    height: '100%',
     backgroundColor: '#ccc'
   }
 })
@@ -59,11 +59,13 @@ export default class TreeCard extends React.Component {
       <Link href={{ pathname: '/t', query: { id } }}>
         <ButtonBase className={classes.button}>
           <Card elevation={0} square raised className={classes.card}>
-            <CardMedia
-              className={classes.cover}
-              image={image.url}
-              title={name}
-            />
+            <div>
+              <CardMedia
+                className={classes.cover}
+                image={image.url}
+                title={name}
+              />
+            </div>
             <div className={classes.details}>
               <CardContent className={classes.content}>
                 <Typography variant='headline'>{name}</Typography>

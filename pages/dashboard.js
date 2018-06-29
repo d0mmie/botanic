@@ -1,16 +1,12 @@
 import React from 'react'
-import Button from '@material-ui/core/Button'
-import Link from 'next/link'
+import Layout from '../components/layout'
 
 export default class Dashboard extends React.Component {
   render () {
     return (
-      <div>
-        <Link href={{ pathname: '/tree' }}>
-          <Button>{'GO TO TREELIST'}</Button>
-        </Link>
+      <Layout title='แดชบอร์ด'>
         {'Dashboard'}
-      </div>
+      </Layout>
     )
   }
 }

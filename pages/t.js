@@ -52,13 +52,24 @@ TypoFormat.propTypes = {
 
 const styles = theme => ({
   card: {
+    [theme.breakpoints.up('md')]: {
+      flexDirection: 'row'
+    },
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column'
+    },
     display: 'flex',
-    flexDirection: 'row',
     margin: '12px 0'
   },
   media: {
-    paddingLeft: 400,
-    height: '100%',
+    [theme.breakpoints.up('md')]: {
+      paddingLeft: 400,
+      height: '100%'
+    },
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+      paddingTop: 400
+    },
     cursor: 'pointer'
   },
   typo: {

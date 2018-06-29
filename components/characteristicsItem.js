@@ -8,7 +8,13 @@ import { connect } from 'react-redux'
 const styles = theme => ({
   card: {
     display: 'flex',
-    flexDirection: 'row',
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+      textAlign: 'center'
+    },
+    [theme.breakpoints.up('md')]: {
+      flexDirection: 'row'
+    },
     padding: 16,
     marginTop: 16,
     alignItems: 'center'
