@@ -1,7 +1,15 @@
 import { createMuiTheme, createGenerateClassName } from '@material-ui/core/styles'
+import green from '@material-ui/core/colors/green'
 import { SheetsRegistry } from 'jss'
 
-const theme = createMuiTheme()
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: green[500],
+      contrastText: '#fff'
+    }
+  }
+})
 
 const createPageContext = () => ({
   theme,
